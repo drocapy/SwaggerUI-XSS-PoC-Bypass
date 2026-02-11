@@ -1,0 +1,32 @@
+swagger: '2.0'
+info:
+  version: "1.0.1"
+  title: Security Testing Spec
+  description: >
+    DOM XSS test <img src=x onerror="console.log('xss-test')">
+
+securityDefinitions:
+  testAuth:
+    type: oauth2
+    authorizationUrl: javascript:console.log('auth-xss-test')//
+
+paths:
+  /test:
+    get:
+      summary: Test endpoint
+      description: "<svg onload=console.log('dom-test')>"
+      responses:
+        '200':
+          description: OK
+
+  '/search/{param}':
+    delete:
+      parameters:
+        - name: param
+          in: path
+          required: true
+          type: string
+          description: "<img src=x onerror=console.log('param-test')>"
+      responses:
+        '200':
+          description: done
