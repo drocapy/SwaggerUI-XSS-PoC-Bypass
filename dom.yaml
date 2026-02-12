@@ -30,9 +30,3 @@ paths:
       responses:
         '200':
           description: No response was specified
-
-
-
-
-
-
